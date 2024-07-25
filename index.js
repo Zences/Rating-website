@@ -16,11 +16,11 @@ async function renderCards(movie){
            Description
           </p>
           <div class="flex items-center justify-center mt-4">
-            <button
-              class="px-3 py-1.5 text-sm text-white bg-black rounded-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+            <a href="review.html?id={imbdID}"
+              id = "reviewBttn" class="px-3 py-1.5 text-sm text-white bg-black rounded-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
             >
               Review
-            </button>
+            </a>
             <div class="flex items-center ml-4">
               <p>(16)</p>
               <span class="text-yellow-500 text-lg">&#9733;</span>
@@ -44,8 +44,9 @@ async function renderCards(movie){
 
     movies.Search.forEach((movie)=>{
         const title =  movie.Title
+        const id =  movie.imdbID
         const poster = movie.Poster =="N/A" ? "/images/friends.jpg" :  movie.Poster 
-        htmlTORender+= card.replace("{title}",title).replace("{image}",poster)
+        htmlTORender+= card.replace("{title}",title).replace("{image}",poster).replace("{imbdID}",id)
 
     })
 
@@ -72,7 +73,6 @@ async function getMovies(search) {
 
 
 function clickedSearch(){
-    
 
     let searchValue = searchElement.value
     renderCards(searchValue)
@@ -99,6 +99,13 @@ function showProgress(show){
     }
 }
 
+
+
 showProgress(true)
 renderCards("westerns")
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("reviewBttn").onclick = function() {
+        window.location.href = "reviewpage.html";
+    };
+});

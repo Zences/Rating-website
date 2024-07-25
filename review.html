@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rate</title>
+    <link rel="icon" type="image/x-icon" href="/images/rRated.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .font-roboto {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+    <script defer src="review.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    <br />
+
+    <!-- Nav bar -->
+    <div class="bg-gray-200 p-3 text-center font-sans">
+      <div class="flex items-center justify-center">
+        <div class="space-y-2 mr-4">
+          <div class="w-8 h-0.5 bg-black"></div>
+          <div class="w-8 h-0.5 bg-black"></div>
+          <div class="w-8 h-0.5 bg-black"></div>
+        </div>
+
+        <a href="./" class="text-3xl flex-1 text-center text-black"
+          >Movie Review</a
+        >
+
+        <img
+          src="images/deafult picutre.png"
+          alt="Default Icon"
+          class="h-12 w-12 ml-auto"
+        />
+      </div>
+    </div>
+
+    <div class="progress"></div>
+
+    <!-- Image and text -->
+    <div
+      id="displayReview"
+      class="mx-auto my-10 max-w-3xl flex items-center justify-center hidden"
+    >
+      <img
+        id="moviePoster"
+        src="images/avengersEndgame.jpg"
+        alt="avengersEndgame"
+        class="mr-8 h-auto w-72"
+      />
+      <div class="ml-8">
+        <h1 id="movieTitle" class="text-4xl font-bold mb-4">
+          Avengers Endgame
+        </h1>
+        <p
+          id="moviePlot"
+          class="text-base font-medium text-gray-700 leading-relaxed"
+        >
+          After the devastating events of Avengers: Infinity War (2018) the
+          universe is in ruins. WIth the help of remaining allies, the Avengers
+          assemble once more in order to reverse Thanos' actions and restore
+          balance to the universe.
+        </p>
+        <p id="movieGenre" class="mt-2 font-light">
+          Genre: Action,Adventure,Drama
+        </p>
+        <p id="movieRuntime" class="mt-2 font-light">Runtime: 181 min</p>
+        <p id="movieDirector" class="mt-2 font-light">
+          Director: Anthony Russo, Joe Russo
+        </p>
+        <p id="movieWriter" class="mt-2 font-light">
+          Writer: Christopher Markus, Stephen McFeely, Stan Lee
+        </p>
+        <p id="movieActor" class="mt-2 font-light">
+          Actors: Robert Downey Jr., Chris Evans, Mark Ruffalo
+        </p>
+        <div class="mt-4">
+          <label for="review" class="block font-bold text-lg mb-2"
+            >Add your review:</label
+          >
+          <textarea
+            id="review"
+            name="review"
+            rows="4"
+            class="w-full px-3 py-2 text-base leading-normal border rounded-lg"
+            placeholder="Write your review here..."
+          ></textarea>
+        </div>
+        <div class="flex items-center ml-4">
+          <span class="text-yellow-500 text-lg">&#9733;</span>
+          <span class="text-yellow-500 text-lg">&#9733;</span>
+          <span class="text-yellow-500 text-lg">&#9733;</span>
+          <span class="text-yellow-500 text-lg">&#9733;</span>
+          <span class="text-gray-400 text-lg">&#9733;</span>
+        </div>
+        <button
+          class="px-4 py-2 mx-64 bg-gray-200 text-black rounded hover:bg-sky-700 hover:text-white"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
