@@ -31,6 +31,14 @@ function showProgress(show){
     }
 }
 
+async function getReview(){
+    let textarea = document.querySelector("#review")
+    let review = textarea.value
+
+    let command =  `INSERT INTO reviews (username,review) VALUES ('john','${review}')`
+    
+}
+
 
 async function load(){
     showProgress(true)

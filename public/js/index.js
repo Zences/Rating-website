@@ -16,7 +16,7 @@ async function renderCards(movie){
            Description
           </p>
           <div class="flex items-center justify-center mt-4">
-            <a href="review.html?id={imbdID}"
+            <a href="/review?id={imbdID}"
               id = "reviewBttn" class="px-3 py-1.5 text-sm text-white bg-black rounded-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
             >
               Review
