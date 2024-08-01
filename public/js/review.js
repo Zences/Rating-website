@@ -31,12 +31,30 @@ function showProgress(show){
     }
 }
 
-async function getReview(){
+async function submitReview(event){
+    
+    event.preventDefault(); // Prevent the default form submission
+
+    let form =  document.querySelector("#reviewform")
     let textarea = document.querySelector("#review")
     let review = textarea.value
 
-    let command =  `INSERT INTO reviews (username,review) VALUES ('john','${review}')`
-    
+    const res = await fetch("review", {
+        method:"post", // Use the form's method (GET/POST)
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ review,username:"paul" }) // Send the review data
+    })
+    .then(response=>response.json())
+
+    if (res.message){
+        alert("Review has been saved")
+    }else{
+        alert(res.error)
+    }
+
+    textarea.value=""   
 }
 
 

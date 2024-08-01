@@ -77,8 +77,9 @@
         </p>
         <div class="mt-4">
           <label for="review" class="block font-bold text-lg mb-2"
-            >Add your review:</label
-          >
+            >Add your review:</label>
+          <input type="text" id="imdb_id" hidden />
+          <form method="post" action="review"  onsubmit="submitReview(event)">
           <textarea
             id="review"
             name="review"
@@ -95,11 +96,12 @@
           <span class="text-gray-400 text-lg">&#9733;</span>
         </div>
         <button
-          onclick="getReview()"
+          type="submit"
           class="px-4 py-2 mx-64 bg-gray-200 text-black rounded hover:bg-sky-700 hover:text-white"
         >
           Submit
         </button>
+      </form>
       </div>
     </div>
     <script src="js/review.js"></script>
