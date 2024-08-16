@@ -6,11 +6,6 @@
     <title>Rate</title>
     <link rel="icon" type="image/x-icon" href="/images/rRated.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .font-roboto {
-        font-family: "Roboto", sans-serif;
-      }
-    </style>
   </head>
   <body class="bg-gray-100">
     <br />
@@ -58,12 +53,12 @@
           class="text-base font-medium text-gray-700 leading-relaxed"
         >
           After the devastating events of Avengers: Infinity War (2018) the
-          universe is in ruins. WIth the help of remaining allies, the Avengers
+          universe is in ruins. With the help of remaining allies, the Avengers
           assemble once more in order to reverse Thanos' actions and restore
           balance to the universe.
         </p>
         <p id="movieGenre" class="mt-2 font-light">
-          Genre: Action,Adventure,Drama
+          Genre: Action, Adventure, Drama
         </p>
         <p id="movieRuntime" class="mt-2 font-light">Runtime: 181 min</p>
         <p id="movieDirector" class="mt-2 font-light">
@@ -77,33 +72,67 @@
         </p>
         <div class="mt-4">
           <label for="review" class="block font-bold text-lg mb-2"
-            >Add your review:</label>
+            >Add your review:</label
+          >
           <input type="text" id="imdb_id" hidden />
-          <form method="post" action="review"  onsubmit="submitReview(event)">
-          <textarea
-            id="review"
-            name="review"
-            rows="4"
-            class="w-full px-3 py-2 text-base leading-normal border rounded-lg"
-            placeholder="Write your review here..."
-          ></textarea>
+          <form method="post" action="review" onsubmit="submitReview(event)">
+            <textarea
+              id="review"
+              name="review"
+              rows="4"
+              class="w-full px-3 py-2 text-base leading-normal border rounded-lg"
+              placeholder="Write your review here..."
+            ></textarea>
+            <div id="rating" class="flex items-center ml-4">
+              <span class="star text-gray-400 text-2xl">&#9733;</span>
+              <span class="star text-gray-400 text-2xl">&#9733;</span>
+              <span class="star text-gray-400 text-2xl">&#9733;</span>
+              <span class="star text-gray-400 text-2xl">&#9733;</span>
+              <span class="star text-gray-400 text-2xl">&#9733;</span>
+            </div>
+            <button
+              type="submit"
+              class="px-4 py-2 mx-64 bg-gray-200 text-black rounded hover:bg-sky-700 hover:text-white"
+            >
+              Submit
+            </button>
+          </form>
         </div>
-        <div class="flex items-center ml-4">
-          <span class="text-yellow-500 text-lg">&#9733;</span>
-          <span class="text-yellow-500 text-lg">&#9733;</span>
-          <span class="text-yellow-500 text-lg">&#9733;</span>
-          <span class="text-yellow-500 text-lg">&#9733;</span>
-          <span class="text-gray-400 text-lg">&#9733;</span>
-        </div>
-        <button
-          type="submit"
-          class="px-4 py-2 mx-64 bg-gray-200 text-black rounded hover:bg-sky-700 hover:text-white"
-        >
-          Submit
-        </button>
-      </form>
       </div>
     </div>
+
+    <script>
+      const stars = document.querySelectorAll("#rating .star");
+      let selectedRating = 0;
+
+      stars.forEach((star, index) => {
+        star.addEventListener("click", () => {
+          selectedRating = index + 1;
+          updateStars();
+        });
+
+        star.addEventListener("mouseover", () => {
+          updateStars(index + 1);
+        });
+
+        star.addEventListener("mouseout", () => {
+          updateStars(selectedRating);
+        });
+      });
+
+      function updateStars(rating = selectedRating) {
+        stars.forEach((star, index) => {
+          if (index < rating) {
+            star.classList.add("text-yellow-500");
+            star.classList.remove("text-gray-400");
+          } else {
+            star.classList.add("text-gray-400");
+            star.classList.remove("text-yellow-500");
+          }
+        });
+      }
+    </script>
+
     <script src="js/review.js"></script>
   </body>
 </html>
